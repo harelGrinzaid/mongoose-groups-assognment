@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const User = require("./User.js");
+const Group = require("./Group.js");
 
 mongoose.connect(
   "mongodb://localhost/testdb", //find the right url to connect to later
@@ -8,6 +9,19 @@ mongoose.connect(
   },
   (e) => console.error(e)
 );
+
+const run = async () => {
+  const user = await User.findOne({
+    userName: "queenmmmmmmmmmmm",
+  });
+  const res = await user.getParentGroupsOfUser().then((res) => {
+    return res;
+  });
+  const groupArray = Promise.all(res);
+  console.log("mmmmmmmmmmmmmmmmmmmmmmmmm\n", await groupArray);
+};
+
+run();
 
 // //for group
 

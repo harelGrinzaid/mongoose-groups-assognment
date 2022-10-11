@@ -1,81 +1,78 @@
 const mongoose = require("mongoose");
+const User = require("./User.js");
 
 const gruopSchema = new mongoose.Schema({
-  gruopName: {
+  groupName: {
     type: String,
-    required: true,
+    //required: true,
   },
   groupDescription: {
     type: String,
-    required: true,
+    //required: true,
   },
 
   /*, members\users:
-    {
-        [type: mongoose.SchemaTypes:ObjectId,ref:"User"]
-    }
+        [{type: mongoose.SchemaTypes.ObjectId,ref:"User"}]
   \\ that needs to be a connection to the users db or the ids of the users that are in it*/
 
   /*, childGroups:
-    {
-        [type: mongoose.SchemaTypes:ObjectId,ref:"Group"]
-    }
+        [{type: mongoose.SchemaTypes.ObjectId,ref:"Group"}]
   \\ that needs to be a connection to the gruops db or the ids of the groups that are in it*/
 
   /*, parentGroups:
     {
-        [type: mongoose.SchemaTypes:ObjectId,ref:"Group"]
+        [type: mongoose.SchemaTypes.ObjectId,ref:"Group"]
         
     }
   \\ that needs to be a connection to the gruops db or the ids of the groups that they are in*/
 });
 
-userSchema.statics.findSpecificUserRecursivelyInGroup = function () {}; //todo
+gruopSchema.statics.findSpecificUserRecursivelyInGroup = function () {}; //todo
 
-userSchema.statics.findUsersRecursivelyInGroup = function () {}; //todo
+gruopSchema.statics.findUsersRecursivelyInGroup = function () {}; //todo
 
-userSchema.statics.getParentGroupsOfGroup = function () {}; //todo
+gruopSchema.statics.getParentGroupsOfGroup = function () {}; //todo
 
-userSchema.statics.getAllInGroupInHierarchy = function () {}; //todo
+gruopSchema.statics.getAllInGroupInHierarchy = function () {}; //todo
 
-userSchema.statics.checkGroupExistsInGroupAlready = function () {}; //todo
+gruopSchema.statics.checkGroupExistsInGroupAlready = function () {}; //todo
 
-userSchema.statics.checkSelfInclusionRecursively = function () {}; //todo
+gruopSchema.statics.checkSelfInclusionRecursively = function () {}; //todo
 
-userSchema.statics.updateGroupUsers = function () {}; //todo
+gruopSchema.statics.updateGroupUsers = function () {}; //todo
 
-userSchema.statics.addUsersToGroup = function () {}; //todo
+gruopSchema.statics.addUsersToGroup = function () {}; //todo
 
-userSchema.statics.removeGroupFromGroup = function () {}; //todo
+gruopSchema.statics.removeGroupFromGroup = function () {}; //todo
 
-userSchema.statics.removeUserFromGroup = function () {}; //todo
+gruopSchema.statics.removeUserFromGroup = function () {}; //todo
 
-userSchema.statics.updateGroupName = function () {}; //todo
+gruopSchema.statics.updateGroupName = function () {}; //todo
 
-userSchema.statics.updateGroupDescription = function () {}; //todo
+gruopSchema.statics.updateGroupDescription = function () {}; //todo
 
-userSchema.statics.updateParentGroups = function () {}; //todo
+gruopSchema.statics.updateParentGroups = function () {}; //todo
 
-userSchema.statics.addParentGroups = function () {}; //todo
+gruopSchema.statics.addParentGroups = function () {}; //todo
 
-userSchema.statics.updateChildGroups = function () {}; //todo
+gruopSchema.statics.updateChildGroups = function () {}; //todo
 
-userSchema.statics.addChildGroups = function () {}; //todo
+gruopSchema.statics.addChildGroups = function () {}; //todo
 
-userSchema.statics.deleteGroup = function () {}; //todo
+gruopSchema.statics.deleteGroup = function () {}; //todo
 
-userSchema.statics.deleteWithUsresRecursivelyGroup = function () {}; //todo
+gruopSchema.statics.deleteWithUsresRecursivelyGroup = function () {}; //todo
 
-userSchema.statics.deleteWithoutUsresRecursivelyGroup = function () {}; //todo
+gruopSchema.statics.deleteWithoutUsresRecursivelyGroup = function () {}; //todo
 
-userSchema.statics.deleteUsersThatAreInGroup = function () {}; //todo
+gruopSchema.statics.deleteUsersThatAreInGroup = function () {}; //todo
 
-userSchema.statics.deleteAllUsersNonRecursivelyInGroup = function () {}; //todo
+gruopSchema.statics.deleteAllUsersNonRecursivelyInGroup = function () {}; //todo
 
-userSchema.statics.deleteUsersThatAreInGroup = function () {}; //todo
+gruopSchema.statics.deleteUsersThatAreInGroup = function () {}; //todo
 
-userSchema.statics.deleteAllChildGroupsNonRecursively = function () {}; //todo
+gruopSchema.statics.deleteAllChildGroupsNonRecursively = function () {}; //todo
 
-userSchema.statics.deleteChildGroups = function () {}; //todo
+gruopSchema.statics.deleteChildGroups = function () {}; //todo
 
 module.exports = mongoose.model("Group", gruopSchema);
