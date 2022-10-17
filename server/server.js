@@ -10,15 +10,39 @@ mongoose.connect(
   (e) => console.error(e)
 );
 
+// const group = await Group.create({
+//   groupName: "meme",
+//   parentGroups: ["63414bf63d8341461515b039"],
+// });
+
+// const group = await Group.findOne({
+//   groupName: "transilvania",
+// });
+
 const run = async () => {
-  const user = await User.findOne({
-    userName: "queenmmmmmmmmmmm",
+  const group = await Group.findOne({
+    groupName: "fffffffffffffffffuuuuuuuuuuuuuuuuuuuu",
   });
-  const res = await user.getParentGroupsOfUser().then((res) => {
-    return res;
-  });
-  const groupArray = Promise.all(res);
-  console.log("mmmmmmmmmmmmmmmmmmmmmmmmm\n", await groupArray);
+
+  console.log("type of", typeof Group);
+
+  console.log(group);
+
+  const parentGroup = await group.getParentGroupsOfGroup();
+
+  console.log("parentGroup", parentGroup);
+
+  //
+  //test for getParentGroupsOfUser
+  //
+  // const user = await User.findOne({
+  //   userName: "queenmmmmmmmmmmm",
+  // });
+  // const res = await user.getParentGroupsOfUser().then((res) => {
+  //   return res;
+  // });
+  // const groupArray = Promise.all(res);
+  // console.log("mmmmmmmmmmmmmmmmmmmmmmmmm\n", await groupArray);
 };
 
 run();

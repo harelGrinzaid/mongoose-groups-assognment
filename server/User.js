@@ -31,18 +31,20 @@ const userSchema = new mongoose.Schema({
 
 userSchema.methods.getParentGroupsOfUser = async function () {
   const parentGroupsIDsArray = this.parentGroups;
-  let parentGroupsArray = await parentGroupsIDsArray.map(async (id) => {
-    let parentGroup = Group.findById(id).then((res) => {
-      return res;
-    });
-    return await parentGroup;
-  });
+  let parentGroupsArray = await Promise.all(
+    await parentGroupsIDsArray.map(async (id) => {
+      let parentGroup = await Group.findById(id);
+      return await parentGroup;
+    })
+  );
   return await parentGroupsArray;
-}; //todo
+};
 
-userSchema.statics.checkUserExistsInGroupAlready = function () {}; //todo
+//this may need to happen in group.js
+//userSchema.methods.checkUserExistsInGroupAlready = function () {}; //todo
 
-userSchema.statics.addUserToGroup = function () {}; //todo
+//this may need to happen in group.js
+//userSchema.methods.addUserToGroup = function (groupID) {}; //todo
 
 userSchema.pre("save", function (next) {
   //add valadation here
